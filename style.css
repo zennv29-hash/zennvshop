@@ -1,0 +1,212 @@
+:root {
+    --primary: #818cf8;
+    --primary-hover: #6366f1;
+    --bg: #090d16;
+    --surface: #131b2e;
+    --surface-card: #1e293b;
+    --text: #f8fafc;
+    --text-muted: #94a3b8;
+    --border: #1e293b;
+    --success: #34d399;
+}
+
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+    font-family: 'Poppins', sans-serif; 
+}
+
+body { 
+    background: var(--bg); 
+    color: var(--text); 
+    padding-bottom: 60px;
+    letter-spacing: -0.01em;
+}
+
+.container { 
+    width: 90%; 
+    max-width: 1100px; 
+    margin: 0 auto; 
+}
+
+/* NAVBAR UPGRADE */
+.navbar { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 2rem 0; 
+}
+.logo { 
+    font-size: 1.6rem; 
+    font-weight: 700; 
+    letter-spacing: -0.03em;
+} 
+.logo span { 
+    color: var(--primary); 
+}
+.nav-badge {
+    font-size: 0.8rem;
+    background: rgba(129, 140, 248, 0.1);
+    color: var(--primary);
+    padding: 0.4rem 0.9rem;
+    border-radius: 50px;
+    font-weight: 500;
+    border: 1px solid rgba(129, 140, 248, 0.2);
+}
+
+/* HERO SECTION */
+.hero { 
+    text-align: center; 
+    padding: 4rem 0 3rem 0; 
+}
+.hero h2 { 
+    font-size: 2.6rem; 
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+}
+.gradient-text {
+    background: linear-gradient(to right, #a78bfa, #818cf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.hero-subtitle {
+    font-size: 1rem;
+    color: var(--text-muted);
+    max-width: 680px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+/* SECTION KEUNTUNGAN BELI */
+.benefits-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+.benefit-card {
+    background: rgba(19, 27, 46, 0.6);
+    border: 1px solid rgba(30, 41, 59, 0.5);
+    padding: 1.5rem;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+}
+.benefit-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(129, 140, 248, 0.3);
+}
+.benefit-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+}
+.benefit-card h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #f1f5f9;
+}
+.benefit-card p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    font-weight: 300;
+}
+
+/* DAFTAR PRODUK */
+.section-title { 
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 2rem; 
+    color: #f1f5f9;
+    letter-spacing: -0.02em;
+}
+.product-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+    gap: 1.5rem; 
+}
+.card { 
+    background: var(--surface); 
+    border: 1px solid var(--border); 
+    border-radius: 16px; 
+    padding: 1.8rem; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+    min-height: 200px;
+    transition: 0.3s;
+}
+.card:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+    border-color: #334155;
+}
+.product-name { 
+    font-size: 1.3rem; 
+    font-weight: 600; 
+    margin-bottom: 0.4rem; 
+    color: #fff;
+}
+.product-meta { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin: 1.5rem 0 1rem 0; 
+}
+.price { 
+    font-size: 1.5rem; 
+    font-weight: 700; 
+    color: #34d399; 
+}
+.stock { 
+    font-size: 0.8rem; 
+    background: #1e293b; 
+    padding: 0.3rem 0.7rem; 
+    border-radius: 8px; 
+    color: #cbd5e1; 
+    font-weight: 500;
+}
+
+button { 
+    width: 100%; 
+    padding: 0.85rem; 
+    border: none; 
+    background: var(--primary); 
+    color: white; 
+    font-weight: 600; 
+    border-radius: 12px; 
+    cursor: pointer; 
+    font-size: 0.95rem; 
+    transition: 0.2s;
+}
+button:hover { 
+    background: var(--primary-hover); 
+}
+.loading { 
+    text-align: center; 
+    padding: 3rem; 
+    color: var(--text-muted); 
+    font-size: 1rem; 
+}
+
+/* MODAL & DIALOG BOX */
+.modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(5, 8, 16, 0.9); display: flex; justify-content: center; align-items: center; z-index: 1000; backdrop-filter: blur(4px); }
+.modal-content { background: var(--surface); padding: 2.5rem 2rem; border-radius: 24px; width: 90%; max-width: 440px; position: relative; border: 1px solid var(--border); }
+.close-btn { position: absolute; top: 1.2rem; right: 1.2rem; font-size: 1.8rem; cursor: pointer; color: var(--text-muted); }
+.modal-content h3 { font-size: 1.3rem; font-weight: 600; text-align: center; }
+.qr-wrapper { background: white; padding: 1rem; border-radius: 16px; width: 210px; height: 210px; margin: 1.5rem auto; display: flex; justify-content: center; align-items: center; }
+.qr-wrapper img { width: 100%; height: 100%; object-fit: contain; }
+.payment-info { text-align: center; margin-bottom: 1.5rem; }
+.payment-info p { font-size: 0.9rem; color: var(--text-muted); }
+.payment-info h2 { color: #f43f5e; margin: 0.3rem 0; font-size: 2.2rem; font-weight: 700; }
+.expired-text { font-size: 0.9rem; color: #fbbf24; font-weight: 500; }
+.hidden { display: none !important; }
+.account-box { background: #090d16; padding: 1.2rem; border-radius: 12px; margin-top: 1rem; border: 1px solid var(--success); font-family: monospace; font-size: 1rem; line-height: 1.6; color: #34d399; word-break: break-all; }
+.success-icon { font-size: 3.5rem; text-align: center; margin-bottom: 0.5rem; }
+.loader-line { height: 4px; width: 100%; background: #1e293b; overflow: hidden; position: relative; margin-bottom: 12px; border-radius: 2px; }
+.loader-line::before { content: ''; position: absolute; left: -50%; height: 100%; width: 50%; background: var(--primary); animation: lineAnim 1.5s linear infinite; }
+@keyframes lineAnim { 0% { left: -50%; } 100% { left: 100%; } }
+footer { text-align: center; color: var(--text-muted); padding: 4rem 0 1.5rem; font-size: 0.85rem; border-top: 1px solid rgba(30, 41, 59, 0.3); margin-top: 4rem; }

@@ -1,0 +1,38 @@
+<?php
+header("Content-Type: application/json");
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: Content-Type");
+header("Access-Control-Allow-Methods: POST, GET");
+
+// Ambil data action/endpoint dari URL parameter (?action=...)
+$action = $_GET['action'] ?? '';
+if (!$action) {
+    echo json_encode(["success" => false, "message" => "Endpoint tidak ditentukan."]);
+    exit;
+}
+
+// Ambil input JSON dari frontend
+$input = json_decode(file_get_contents("php://input"), true) ?? [];
+
+// API Key Anda aman di dalam server backend PHP, tidak bisa diintip pembeli
+$apiKey = "907855e5e72d206fa82dd9c818768045";
+$input['api_key'] = $apiKey;
+
+// Proses cURL ke Server Premku
+$url = "https://premku.com/api/" . $action;
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($input));
+curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Bypass SSL jika dijalankan di localhost
+
+$result = curl_exec($ch);
+if (curl_errno($ch)) {
+    echo json_encode(["success" => false, "message" => "cURL Error: " . curl_error($ch)]);
+} else {
+    echo $result;
+}
+curl_close($ch);
+?>

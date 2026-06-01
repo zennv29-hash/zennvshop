@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZennvStore - Premium & Automated Digital Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <header>
+        <div class="container navbar">
+            <h1 class="logo">Zennv<span>Store</span></h1>
+            <div class="nav-badge">⚡ Instant Delivery Active</div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h2>Kebutuhan Premium,<br><span class="gradient-text">Instan & Serba Otomatis</span></h2>
+            <p class="hero-subtitle">Nikmati kemudahan transaksi masa kini. Sekali klik, bayar pake QRIS, akun langsung tampil detik itu juga tanpa tunggu admin bangun.</p>
+        </section>
+
+        <section class="benefits-section">
+            <div class="benefit-card">
+                <div class="benefit-icon">⚡</div>
+                <h4>Anti Nunggu (100% Otomatis)</h4>
+                <p>Gak jaman beli akun nunggu dichat berjam-jam. Sistem canggih kami langsung memproses pesananmu secara real-time.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">🛡️</div>
+                <h4>Kualitas Bergaransi</h4>
+                <p>Semua produk digital dijamin legal, aman, dan full garansi. Nonton nyaman, kerja lancar, hati tenang.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">💎</div>
+                <h4>Harga Paling Kompetitif</h4>
+                <p>Kualitas layanan premium bintang lima dengan penawaran harga terbaik yang ramah di dompet kamu.</p>
+            </div>
+        </section>
+
+        <section style="margin-top: 2rem; background: var(--surface); padding: 1.2rem; border-radius: 12px; border: 1px solid var(--border);">
+            <h3 style="font-size: 1rem; margin-bottom: 10px; color: #f1f5f9; font-weight: 600;">Punya Kode Promo? 🎁</h3>
+            <div style="display: flex; gap: 8px; align-items: center;">
+                <input type="text" id="home-promo-input" placeholder="Masukkan kode promo..." style="flex: 1; padding: 11px 14px; border-radius: 8px; border: 1px solid #1e293b; background: #090d16; color: white; font-family: inherit; font-size: 0.85rem; outline: none;">
+                <button onclick="cekPromoHome()" id="home-promo-btn" style="padding: 11px 20px; background: var(--primary); color: white; border-radius: 8px; font-weight: 600; border: none; cursor: pointer; font-size: 0.85rem; white-space: nowrap; height: 100%;">Klaim</button>
+            </div>
+            <p id="home-promo-msg" style="margin-top: 8px; font-size: 0.8rem; font-weight: 500; display: none;"></p>
+        </section>
+
+        <section style="margin-top: 3rem;">
+            <h3 class="section-title">Katalog Produk Eksklusif</h3>
+            <div id="loading-products" class="loading">Menghubungkan ke secure server...</div>
+            <div class="product-grid" id="product-container"></div>
+        </section>
+    </main>
+
+    <div id="checkout-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            
+            <div id="modal-step-1">
+                <h3>Gateway Pembayaran Aman</h3>
+                <p id="modal-product-name" style="font-weight: 600; margin-top: 5px; color: var(--primary);"></p>
+                
+                <div class="qr-wrapper">
+                    <img id="qris-image" src="" alt="QRIS Loading...">
+                </div>
+                
+                <div class="payment-info">
+                    <p>Total Tagihan (Harus Pas):</p>
+                    <h2 id="qris-total">Rp 0</h2>
+                    <p class="expired-text" id="qris-expired">Menunggu pembayaran...</p>
+                </div>
+                <div class="loader-line"></div>
+                <p style="text-align: center; font-size: 0.8rem; color: var(--text-muted);">Sistem memverifikasi mutasi otomatis. Mohon tidak menutup halaman ini.</p>
+            </div>
+
+            <div id="modal-step-2" class="hidden">
+                <div class="success-icon">✅</div>
+                <h3 style="text-align: center; color: var(--success);">Transaksi Berhasil!</h3>
+                <p style="text-align: center; margin-bottom: 10px; font-size: 0.9rem; color: var(--text-muted);">Pesanan diproses instan oleh server. Berikut data akun Anda:</p>
+                <div id="account-delivery-box"></div>
+                <button onclick="closeModal()" style="margin-top: 20px;">Selesai & Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <footer><p>&copy; 2026 ZennvStore. Dibuat dengan sistem otomasi premium.</p></footer>
+    <script src="script.js"></script>
+</body>
+</html>
